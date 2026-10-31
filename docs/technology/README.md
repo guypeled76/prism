@@ -10,7 +10,7 @@ This section checks whether the proposed technology choices can deliver the desi
 | --- | --- | --- | --- | --- |
 | T1 | Rust as the main language | [rust.md](rust.md) | **Go** | Mobile OS features (alarms, widgets, lock-screen actions) still need Swift and Kotlin glue |
 | T2 | One codebase for the app and the website | [app-and-web.md](app-and-web.md) | **Go, with a reduced web tier** | Browsers cannot run alarms, background jobs or large local models reliably |
-| T3 | Local LLM | [local-llm.md](local-llm.md) | **Go for light tasks, hybrid for heavy ones** | Small on-device models are weaker at planning, long-document work and reliable tool calls |
+| T3 | Local LLM (Gemma 4) | [local-llm.md](local-llm.md) | **Go for light tasks, hybrid for heavy ones** | Small on-device models are weaker at planning, long-document work and reliable tool calls |
 | T4 | Google Drive as the sync layer | [google-sync.md](google-sync.md) | **Go, with conditions** | No server copy of the data, so cloud agent jobs need a new design |
 | T5 | Local text to speech | [local-tts.md](local-tts.md) | **Go** | Voice quality varies by language; model download size |
 | T6 | Local image generation | [local-image-generation.md](local-image-generation.md) | **Partial: optional, not core** | Download size, battery and heat on phones; weak in browsers |
@@ -32,7 +32,7 @@ flowchart TB
         AI["AI runtime facade<br/>LLM, TTS, image"]
     end
     subgraph Models["On-device models (downloaded after install)"]
-        LLM["Small LLM<br/>llama.cpp, GGUF ~1-3 GB"]
+        LLM["Gemma 4 E2B / E4B<br/>llama.cpp, GGUF ~2.5-5 GB"]
         TTS["TTS voice<br/>Kokoro / Piper, ONNX"]
         IMG["Image model (optional)<br/>SD-Turbo class"]
     end
@@ -61,7 +61,7 @@ The UI and all business rules live in Rust and are shared; each platform shell a
 
 | Model | Download | RAM while running | Load policy |
 | --- | --- | --- | --- |
-| LLM, 1.5B to 4B parameters, 4-bit | 1 to 2.5 GB | 1.5 to 3 GB | Load on demand, unload after idle |
+| LLM, Gemma 4 E2B / E4B, 4-bit | 2.5 to 5 GB | 3 to 5 GB | Load on demand, unload after idle |
 | TTS voice | 80 to 350 MB | 0.2 to 0.5 GB | Can stay loaded during audio lessons |
 | Image model, SD-Turbo class | 1 to 2 GB | 2 to 3 GB | Only while generating; never alongside the LLM |
 
@@ -76,7 +76,7 @@ Each spike is time-boxed (2 to 5 days), runs on a fixed device set (a mid-range 
 Suggested order, highest risk first:
 
 1. T2 + T1: Tauri 2 shell with a shared Rust core on iOS, Android and web; a local notification with action buttons fires from Rust.
-2. T3: llama.cpp in the shell on both phones; capture classification and "Smaller" with schema-constrained JSON.
+2. T3: llama.cpp with Gemma 4 E2B / E4B in the shell on both phones; capture classification and "Smaller" with schema-constrained JSON.
 3. T4: two devices and a browser syncing through the Drive app folder, with offline edits on both.
 4. T5: Kokoro voice reading a bite card on each platform.
 5. T6: one SD-Turbo image on each phone, measured for time, heat and battery.
