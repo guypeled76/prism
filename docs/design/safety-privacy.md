@@ -10,7 +10,7 @@ Prism handles health-adjacent, emotionally sensitive data for a vulnerable group
 - **No dark patterns.** No streak guilt, no purchasable rewards, no loot boxes, no engagement-maximising notifications. Time-in-app is not a success metric.
 - **Journal privacy.** Journal entries are the most personal data in the app. Any entry can be marked "just for me" (never analysed or used as evidence), analysis can be switched off for the whole journal, and deleting an entry removes it from all inferences.
 - **Transparency.** Every inference (trait, state, plan change) has a "why?" view with the evidence. The user can edit or delete any of it.
-- **Data minimisation and control.** Location, microphone and health data are opt-in, per feature. Full export and full delete at any time. No data sold or used for ads. LLM provider configured with zero data retention and no training on user data.
+- **Data minimisation and control.** Location, microphone and health data are opt-in, per feature. Full export and full delete at any time. No data sold or used for ads. LLM provider configured with zero data retention and no training on user data. Cloud processing of study material is opt-in, carries no profile or journal data, and every cloud job is listed in Settings → Data ([T7](../technology/cloud-llm.md)).
 - **Encryption.** At rest and in transit; uploaded study material is private to the user.
 - **Neurodiversity-affirming review.** Copy, traits and mechanics are reviewed with autistic and ADHD advisors and a clinician before launch; the knowledge base cites sources and is versioned.
 - **Age.** 16+ at launch; a teen version would need guardian and school considerations.

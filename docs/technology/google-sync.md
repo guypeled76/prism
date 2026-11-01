@@ -54,7 +54,7 @@ The `drive.appdata` scope is narrow and believed not to require Google's restric
 
 ## Consequences for the rest of the design
 
-- **No server database means no server-side agent.** The cloud agent, Postgres and Tools API in the [architecture](../design/architecture.md) are replaced by the on-device agent from [local-llm](local-llm.md). If an opt-in cloud model is used, the device sends it only the context for one request.
+- **No server database means no server-side agent.** The cloud agent, Postgres and Tools API in the [architecture](../design/architecture.md) are replaced by the on-device agent from [local-llm](local-llm.md). If an opt-in cloud model is used, the device sends it only the context for one request, through a stateless relay ([T7](cloud-llm.md)).
 - **Users need a Google account.** Offer a local-only mode (no sync) for users who decline; Apple users without Google accounts are the main concern.
 - **Quota.** The app folder counts against the user's 15 GB free quota; op log plus snapshots should stay in single-digit MB, study material is the real cost.
 - **Latency.** Sync is near-real-time while the app is open and catches up on open otherwise. That is fine for a personal app; it rules out live shared features (body-doubling rooms, accountability buddy) through this channel. Those would need a separate small service later.

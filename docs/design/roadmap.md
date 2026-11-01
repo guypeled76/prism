@@ -27,7 +27,7 @@ The MVP proves one loop: *capture or upload → LLM plans tiny steps → Now car
 - [ ] How much autonomy should the agent have to reschedule without asking? Likely a user setting with a conservative default.
 - [ ] Business model that avoids engagement incentives: subscription, student pricing, or institutional (university disability services) licences?
 - [ ] Which clinical / lived-experience advisors validate the knowledge base and trait wording?
-- [ ] LLM cost per active user per month at the target model mix, and the cap that keeps it sustainable. Largely replaced by on-device cost (download size, battery) if the [local LLM](../technology/local-llm.md) validation passes; still applies to opt-in cloud jobs.
+- [ ] LLM cost per active user per month at the target model mix, and the cap that keeps it sustainable. Largely replaced by on-device cost (download size, battery) if the [local LLM](../technology/local-llm.md) validation passes; still applies to opt-in cloud jobs, estimated at $5 to $8 per student per term in [T7](../technology/cloud-llm.md).
 - [ ] Encryption key recovery for Drive sync: passphrase vs keychain + recovery code (see [Google sync](../technology/google-sync.md)).
 - [ ] Local-only mode for users without a Google account?
 - [ ] Live body-doubling rooms: worth the moderation and safety cost in phase 3?

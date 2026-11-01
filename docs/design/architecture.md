@@ -2,7 +2,7 @@
 
 [← Design index](../design.md)
 
-> **Under review.** This section describes the original cloud-agent design. The [technology validation](../technology/README.md) proposes a local-first alternative: an on-device LLM ([T3](../technology/local-llm.md)), sync through the user's Google Drive instead of a cloud Postgres ([T4](../technology/google-sync.md)), and a shared Rust core ([T1](../technology/rust.md), [T2](../technology/app-and-web.md)). If those spikes pass, the agent moves onto the device, the Tools API becomes an in-process interface, and a cloud model is used only for opt-in heavy jobs. This page will be rewritten once the spikes report.
+> **Under review.** This section describes the original cloud-agent design. The [technology validation](../technology/README.md) proposes a local-first alternative: an on-device LLM ([T3](../technology/local-llm.md)), sync through the user's Google Drive instead of a cloud Postgres ([T4](../technology/google-sync.md)), and a shared Rust core ([T1](../technology/rust.md), [T2](../technology/app-and-web.md)). If those spikes pass, the agent moves onto the device, the Tools API becomes an in-process interface, and a cloud model is used only for opt-in heavy jobs ([T7](../technology/cloud-llm.md)). This page will be rewritten once the spikes report.
 
 Prism is local-first: the phone holds a full copy of the user's data and runs everything that must be instant or reliable (timers, alarms, reward animations, the current plan), while an LLM agent in the cloud makes every judgement call and writes its decisions back through a validated tools API.
 

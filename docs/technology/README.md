@@ -14,6 +14,7 @@ This section checks whether the proposed technology choices can deliver the desi
 | T4 | Google Drive as the sync layer | [google-sync.md](google-sync.md) | **Go, with conditions** | No server copy of the data, so cloud agent jobs need a new design |
 | T5 | Local text to speech | [local-tts.md](local-tts.md) | **Go** | Voice quality varies by language; model download size |
 | T6 | Local image generation | [local-image-generation.md](local-image-generation.md) | **Partial: optional, not core** | Download size, battery and heat on phones; weak in browsers |
+| T7 | Cloud LLM (Claude) for heavy jobs | [cloud-llm.md](cloud-llm.md) | **Go, opt-in** | Sends study material off the device; needs a stateless relay to hold the API key |
 
 ## Target stack if every validation passes
 
@@ -36,14 +37,16 @@ flowchart TB
         TTS["TTS voice<br/>Kokoro / Piper, ONNX"]
         IMG["Image model (optional)<br/>SD-Turbo class"]
     end
-    CLOUD["Optional cloud LLM<br/>heavy jobs, user opt-in"]
+    RELAY["Prism relay<br/>stateless, holds API key"]
+    CLOUD["Cloud LLM (Claude)<br/>heavy jobs, user opt-in"]
     GD["User's Google Drive<br/>hidden app folder"]
     IOS --> Core
     AND --> Core
     DESK --> Core
     WEB --> Core
     AI --> Models
-    AI -. "opt-in" .-> CLOUD
+    AI -. "opt-in" .-> RELAY
+    RELAY -.-> CLOUD
     SYNC <--> GD
 ```
 
@@ -55,7 +58,7 @@ The UI and all business rules live in Rust and are shared; each platform shell a
 
 - Nightly jobs (re-plan, trait inference, weekly insights) run on the device, during OS-granted background windows (iOS `BGProcessingTask`, Android `WorkManager`), ideally while charging. On the web they run when the tab is open.
 - The agent's tools API becomes an in-process Rust interface instead of a network service. JSON-schema validation of agent output stays, and becomes more important with smaller models.
-- An optional cloud model remains useful for heavy, one-off work (building a knowledge map from a whole course). It must be opt-in, because it breaks the "data never leaves your devices or your Drive" promise that the local stack otherwise allows.
+- An optional cloud model remains useful for heavy, one-off work (building a knowledge map from a whole course). It must be opt-in, because it breaks the "data never leaves your devices or your Drive" promise that the local stack otherwise allows. [T7](cloud-llm.md) defines which jobs qualify, the stateless relay that carries them, and the cost per user.
 
 **Device budget.** Models cannot all be in memory at once on a phone. Rough sizes at useful quality:
 
@@ -79,4 +82,5 @@ Suggested order, highest risk first:
 2. T3: llama.cpp with Gemma 4 E2B / E4B in the shell on both phones; capture classification and "Smaller" with schema-constrained JSON.
 3. T4: two devices and a browser syncing through the Drive app folder, with offline edits on both.
 4. T5: Kokoro voice reading a bite card on each platform.
-5. T6: one SD-Turbo image on each phone, measured for time, heat and battery.
+5. T7: knowledge maps for three real courses with Claude Opus 5.5 through a minimal relay, compared with Gemma 4 26B-A4B on desktop.
+6. T6: one SD-Turbo image on each phone, measured for time, heat and battery.

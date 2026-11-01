@@ -7,7 +7,7 @@ Study mode turns uploaded learning material and an exam date into a daily plan o
 **Pipeline**
 
 1. **Ingest.** User adds material: PDFs, slides, photos of notes or textbook pages (OCR), web links, lecture recordings (transcribed), past exams, the syllabus. Plus the exam date and, optionally, how confident they feel per topic.
-2. **Map.** The LLM builds a *knowledge map*: topics → concepts → atomic facts/skills, with prerequisites between them and an exam-weight estimate (from syllabus, past exams, emphasis in material). Each concept stores source passages so every question can cite where its answer came from.
+2. **Map.** The LLM (by default the opt-in cloud model, [T7](../technology/cloud-llm.md)) builds a *knowledge map*: topics → concepts → atomic facts/skills, with prerequisites between them and an exam-weight estimate (from syllabus, past exams, emphasis in material). Each concept stores source passages so every question can cite where its answer came from.
 3. **Diagnose (optional).** A 5-minute playful placement quiz marks concepts as known, shaky or new, so time is not wasted on known material.
 4. **Schedule.** Working back from the exam date: new concepts in prerequisite order, spaced reviews of earlier ones (FSRS-style spaced repetition), and 2 to 3 full practice sessions in the final week. A buffer of about 20% of days is left empty for bad days. Study steps are merged into the daily plan with everything else.
 5. **Learn.** Each step is one interactive micro-lesson (below).

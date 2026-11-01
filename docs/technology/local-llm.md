@@ -2,7 +2,7 @@
 
 [← Technology validation](README.md)
 
-**Verdict: Go for light, frequent tasks; hybrid for heavy ones.** The chosen model family is **Gemma 4** (Apache 2.0): E2B and E4B on phones, 26B-A4B on desktop. Phones from about 2022 can run the E2B and E4B models at interactive speed, which is enough for most of what Prism asks of the LLM many times a day. They are not good enough, alone, for building a knowledge map from a 200-page course or for long tutoring sessions; those need the larger desktop model (Gemma 4 26B-A4B) or an opt-in cloud model.
+**Verdict: Go for light, frequent tasks; hybrid for heavy ones.** The chosen model family is **Gemma 4** (Apache 2.0): E2B and E4B on phones, 26B-A4B on desktop. Phones from about 2022 can run the E2B and E4B models at interactive speed, which is enough for most of what Prism asks of the LLM many times a day. They are not good enough, alone, for building a knowledge map from a 200-page course or for long tutoring sessions; those need the larger desktop model (Gemma 4 26B-A4B) or an opt-in cloud model ([T7](cloud-llm.md)).
 
 ## What the design asks of the LLM
 
@@ -19,7 +19,7 @@ The [architecture](../design/architecture.md) delegates many judgements to the L
 | Build today's plan | Daily | Medium (profile, calendar, tasks) | Medium to high | On device, with deterministic rules doing the constraint work |
 | Trait inference from a day's events | Nightly | Medium | Medium | On device, overnight, while charging |
 | Socratic tutoring chat | Occasional | Long context | High | On device (E4B) for short sessions; 26B-A4B on desktop preferred |
-| Knowledge map from a whole course | Rare | Very long | High | Gemma 4 26B-A4B on desktop (256K context) or opt-in cloud |
+| Knowledge map from a whole course | Rare | Very long | High | Opt-in cloud, Claude Opus 5.5 ([T7](cloud-llm.md)); Gemma 4 26B-A4B on desktop (256K context) as the local path |
 
 Key design change: move constraint-heavy reasoning (60% capacity rule, max three main tasks, windows, batching) into deterministic Rust code, and let the LLM rank and phrase. Small models are much better at choosing among valid options than at satisfying many constraints at once.
 
