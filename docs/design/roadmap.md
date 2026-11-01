@@ -6,8 +6,8 @@ The MVP proves one loop: *capture or upload → LLM plans tiny steps → Now car
 
 | Phase | Scope | Exit criteria |
 | --- | --- | --- |
-| 1. MVP | Onboarding seed profile; check-in; capture box; calendar import; quests → tasks → steps; Now card with Smaller / Not now; study mode (PDF upload, knowledge map, bite cards, flashcards, daily plan); effort XP + momentum; core nudges; local-first sync | 30 testers complete one exam prep cycle; most report lower start friction |
-| 2. Learning loop | Nightly trait inference + weekly insight cards; adaptive nudge timing; explain-it-back and tutor chat; companion; plan diffs | Trait insights accepted at a high rate; nudge ignore rate falling |
+| 1. MVP | Onboarding seed profile; check-in; capture box (including journal notes and journal timeline); calendar import; quests → tasks → steps; Now card with Smaller / Not now; study mode (PDF upload, knowledge map, bite cards, flashcards, daily plan); effort XP + momentum; core nudges; local-first sync | 30 testers complete one exam prep cycle; most report lower start friction |
+| 2. Learning loop | Nightly trait inference + weekly insight cards (using journal evidence); journal wins memory and pattern mirror; adaptive nudge timing; explain-it-back and tutor chat; companion; plan diffs | Trait insights accepted at a high rate; nudge ignore rate falling |
 | 3. Supports | Body doubling rooms; smartwatch; medication window; maintenance mode; audio lessons; real-world rewards | Retention holds through low-energy weeks |
 | 4. Ecosystem | Accountability buddy; coach / therapist share view (user-controlled); integrations (Notion, Google Classroom, Canvas) | Partner pilots |
 
@@ -31,3 +31,4 @@ The MVP proves one loop: *capture or upload → LLM plans tiny steps → Now car
 - [ ] Encryption key recovery for Drive sync: passphrase vs keychain + recovery code (see [Google sync](../technology/google-sync.md)).
 - [ ] Local-only mode for users without a Google account?
 - [ ] Live body-doubling rooms: worth the moderation and safety cost in phase 3?
+- [ ] Journal: open questions on sharing, resurfacing frequency and the pattern mirror are tracked in [journal](journal.md).

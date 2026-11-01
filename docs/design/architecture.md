@@ -44,6 +44,7 @@ The phone never talks to the database directly from the agent's side: the agent 
 | Rendering the Now card, quest map, calendar | Breaking tasks into steps; the Smaller button |
 | Spaced-repetition interval maths (FSRS) | Building the knowledge map, generating lessons and questions, grading free answers, tutoring |
 | Event logging | Inferring trait updates, writing weekly insights, picking state mode |
+| Journal storage, private-entry exclusion, evidence removal on delete | Acknowledging journal entries, tagging them, inferring state from them, choosing wins to resurface |
 | Safety cut-offs (crisis keywords route to resources) | Tone, framing and interest hooks |
 
 **Agent design**

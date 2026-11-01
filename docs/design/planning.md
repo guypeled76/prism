@@ -11,7 +11,7 @@ Planning is a four-level hierarchy, Quest → Milestone → Task → Step, where
 | Task | "Learn what a p-value means" | 15 to 60 min | LLM | Today list |
 | Step | "Read this 3-sentence definition and tap Got it" | 1 to 10 min | LLM, generated just in time | Now card |
 
-**Capture.** One input box, everywhere: type or speak anything ("dentist thursday 3pm, also need to finish the slides before Monday, and I want to learn guitar"). The LLM classifies each fragment as event, deadline, task or quest, asks at most one clarifying question, and files it. Capture must take under 5 seconds so ideas are not lost to working memory.
+**Capture.** One input box, everywhere: type or speak anything ("dentist thursday 3pm, also need to finish the slides before Monday, and I want to learn guitar"). The LLM classifies each fragment as event, deadline, task, quest or note (a [journal](journal.md) entry), asks at most one clarifying question, and files it. Capture must take under 5 seconds so ideas are not lost to working memory.
 
 **Calendar.** Fixed events (appointments, classes) are imported from device calendars and shown as solid blocks. Deadlines are shown as markers with a visible "time runway" bar that shrinks. Flexible tasks are never pinned to exact times by default; they are placed into *windows* (morning, afternoon, evening) to avoid the shame of a missed 10:00 slot. Each event carries an energy cost and a transition buffer (e.g. 15 minutes before and after, longer for social events, per profile).
 

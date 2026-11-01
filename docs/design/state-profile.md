@@ -10,9 +10,9 @@ The current state is a fast-changing snapshot (hours, not weeks) that decides *w
 | --- | --- | --- | --- |
 | Energy (spoons) | 0 to 10 spoons left today | Check-in, decays with completed tasks by their cost | Filtering tasks by energy cost |
 | Focus capacity | Scattered / Okay / Locked-in | Check-in, recent session behaviour | Step size and session length |
-| Mood / emotional load | 5 faces + optional word | Check-in | Tone of copy, whether to suggest recovery |
+| Mood / emotional load | 5 faces + optional word | Check-in, [journal](journal.md) entries | Tone of copy, whether to suggest recovery |
 | Sensory load | Calm / Buzzing / Overloaded | Check-in, optional ambient noise sensor | Suggest quieter tasks, offer environment changes |
-| Social battery | 0 to 5 | Check-in, calendar social events | Avoid scheduling calls after draining events |
+| Social battery | 0 to 5 | Check-in, calendar social events, journal entries | Avoid scheduling calls after draining events |
 | Body basics | Ate / drank / moved / slept (toggles) | One-tap body check | Interoception nudges before work |
 | Medication window (optional) | Active / wearing off / none | Logged dose time + user-set duration | Put hard tasks in the active window |
 | Time context | Free minutes until next fixed event | Calendar | Fit tasks to the available gap |

@@ -48,4 +48,5 @@ The design is split into linked documents, one per topic, so each can be read an
 | 11 | [Safety, privacy and ethics](design/safety-privacy.md) | Medical boundaries, crisis handling, data control |
 | 12 | [MVP scope, roadmap and open questions](design/roadmap.md) | Phases, success metrics, open decisions |
 | 13 | [User stories](design/user-stories.md) | Who wants what, and how the mobile app and the website serve each story |
-| 14 | [Technology validation](technology/README.md) | Rust, app + web, local LLM, Google Drive sync, local TTS, local image generation |
+| 14 | [Journal](design/journal.md) | Free-form diary: instant acknowledgement, quiet learning, weekly insights, wins memory |
+| 15 | [Technology validation](technology/README.md) | Rust, app + web, local LLM, Google Drive sync, local TTS, local image generation |

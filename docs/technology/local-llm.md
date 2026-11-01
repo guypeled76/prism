@@ -11,6 +11,7 @@ The [architecture](../design/architecture.md) delegates many judgements to the L
 | Task | Frequency | Input size | Difficulty for a small model | Proposed home |
 | --- | --- | --- | --- | --- |
 | Classify captured text into event / task / quest | Many per day | Short | Low | On device |
+| Acknowledge and tag a journal entry, infer state from it | Several per day | Short | Low to medium | On device |
 | "Smaller": split a step | Many per day | Short | Low | On device |
 | Nudge and reward copy, interest hooks | Several per day | Short | Low | On device |
 | Bite cards and flashcards from one passage | Daily | 1 to 3 pages | Medium | On device |

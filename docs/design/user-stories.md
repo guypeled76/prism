@@ -32,7 +32,7 @@ The desktop app uses the website layout but gets native notifications and backgr
 | ID | Story | Mobile | Web | Phase |
 | --- | --- | --- | --- | --- |
 | US-05 | I want to dump everything on my mind in one go, by voice or text, so that nothing is lost while I still remember it | Capture button on every screen, home-screen widget, lock-screen shortcut, voice input. Under 5 seconds from thought to saved | Global capture shortcut (e.g. Cmd/Ctrl-K) on every page. I can paste long text such as an email or syllabus | MVP |
-| US-06 | I want to see how my capture was filed and fix it in one tap, so that I trust the app with my brain dump | Each fragment becomes a chip (event, deadline, task, quest) that I can tap to change. At most one clarifying question | Same chips inline under the capture box, editable with the keyboard | MVP |
+| US-06 | I want to see how my capture was filed and fix it in one tap, so that I trust the app with my brain dump | Each fragment becomes a chip (event, deadline, task, quest, note) that I can tap to change. At most one clarifying question | Same chips inline under the capture box, editable with the keyboard | MVP |
 
 ## C. The next action (Now card)
 
@@ -117,8 +117,20 @@ The desktop app uses the website layout but gets native notifications and backgr
 | US-48 | I want to plan at my desk and act on my phone, so that each device does what it is good at | Changes made on the web appear within seconds of sync. Works offline from the local copy | Changes from the phone appear on the next sync. Unsynced changes are flagged | MVP |
 | US-49 | When I use the website I want to know what it cannot do, so that I do not rely on reminders that never arrive | n/a | A banner (shown until dismissed) explains that reminders and alarms need the app, with an install link | MVP |
 
+## K. Journal
+
+| ID | Story | Mobile | Web | Phase |
+| --- | --- | --- | --- | --- |
+| US-50 | I want to jot down how my day went, by text or voice, without deciding where it goes, so that writing it costs nothing | Typed into the capture box, it becomes a *note* chip. Voice note from the widget or lock screen. A journal timeline one tap from Today | Same capture box. A journal page with a roomy editor for longer entries | MVP |
+| US-51 | When I write something, I want a short warm reply and no questionnaire, so that the journal feels like a diary and not an assessment | One-line acknowledgement. At most one follow-up, only if it changes something (e.g. "Add this as a task?") | Same | MVP |
+| US-52 | I want what I write to quietly update how the app thinks I am doing today, and to correct it if it guessed wrong, so that I do not have to check in separately | Inferred state banner: "Sounds like a good social day; tap to correct" | Same banner | MVP |
+| US-53 | I want the app to suggest profile changes only when my entries show a pattern, and show me which entries led to it, so that I trust its conclusions | Insights in the weekly "What I learned about you" cards, each linking to the entries behind it | Same insights with the entries expanded | 2 |
+| US-54 | On a hard day, I want to be reminded of a good moment I wrote about, so that one bad day does not erase the good ones | A wins card on low-battery days, at most once a day, quoting my own words | Same card on next visit | 2 |
+| US-55 | I want to mark an entry "just for me", or turn analysis off entirely, so that I can write freely | Toggle on each entry and a global switch in settings. Deleting an entry removes it from all evidence | Same | MVP |
+
 ## Open points
 
 - **Stories with no phase yet:** US-21 (overwhelm button), US-27 (pause everything), US-31 (placement quiz), US-36 (sources and flagging), US-37 (cut by exam weight), US-38 (boss battle) and US-42 (welcome back). US-21, US-36 and US-42 support core design principles and are strong MVP candidates.
 - **Web without reminders:** is the web useful enough to justify building it in the MVP, or should it come in phase 2 alongside study tools such as explain-it-back that suit a keyboard?
+- **Journal and therapist sharing:** whether journal entries can be shared in the phase 4 coach / therapist view, and at what granularity, is open (see [journal](journal.md)).
 - **Keyboard shortcuts:** single-key shortcuts (`S`, `N`) must not fire while typing, and should be optional for users who press keys by accident.

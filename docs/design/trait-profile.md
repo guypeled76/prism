@@ -30,8 +30,8 @@ The trait profile is a slowly changing model of *how this person's brain works*,
 **How the profile evolves**
 
 1. **Seed.** A 5-minute onboarding: short, game-like scenarios ("You have an essay due in 3 days. Pick what usually happens.") rather than clinical questionnaires. Optional import of self-reported diagnoses and medication timing.
-2. **Observe.** Every app event (task shown, started, abandoned, completed, rescheduled, check-in) is logged with context: time, state, framing used, step size.
-3. **Infer.** A nightly LLM job reads the day's events plus the current profile and proposes *trait updates* with evidence ("Started 4 of 5 tasks framed as challenges, 1 of 5 framed as importance → raise challenge weight"). Updates are small (bounded, e.g. at most 5 points per week) to keep the profile stable and trustworthy.
+2. **Observe.** Every app event (task shown, started, abandoned, completed, rescheduled, check-in) is logged with context: time, state, framing used, step size. [Journal](journal.md) entries add the user's own words and the parts of life the app does not see.
+3. **Infer.** A nightly LLM job reads the day's events and journal entries (except private ones) plus the current profile and proposes *trait updates* with evidence ("Started 4 of 5 tasks framed as challenges, 1 of 5 framed as importance → raise challenge weight"). Updates are small (bounded, e.g. at most 5 points per week) to keep the profile stable and trustworthy.
 4. **Confirm.** Weekly, the user sees a short "What I learned about you" card and can accept, reject or edit each insight. Rejected inferences are stored so the LLM does not repeat them.
 5. **Act.** The profile is part of the context for every planning and nudging decision (step size, framing, timing, reward type).
 
